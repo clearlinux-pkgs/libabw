@@ -1,0 +1,1213 @@
+2017-12-31  David Tardon  <dtardon@redhat.com>  [de7974e8a50fc840106dc8ebc38f915e95e88f36]
+
+	add another fixed bug to release notes
+
+	Change-Id: I883e28a5ec5a51de635bc94711b85e59fb068e82
+
+2017-12-31  David Tardon  <dtardon@redhat.com>  [a2ef3befa9057e770c60adc08b2b074b4930e68e]
+
+	prepare for a release
+
+	Change-Id: I2c10b72c73e72f13b7a05c2c93cb7cf94bd1d18b
+
+2017-12-31  David Tardon  <dtardon@redhat.com>  [a9fd509cfa30653106931609508de526de741f1e]
+
+	tdf#74462 use min width/height for inline images
+
+	Change-Id: I0a3f14ff4ab7d01eaa76bbfc2fe2d890ff336272
+
+2017-11-27  David Tardon  <dtardon@redhat.com>  [f6f4e66895284ebeaf2bc80f29cfa2d3776e9f7b]
+
+	ofz#4420 avoid signed integer overflow
+
+	Change-Id: Id8c52d600350a4469e506395d75619d111160db0
+
+2017-11-20  David Tardon  <dtardon@redhat.com>  [8c57c864ef93556e11133350d42f8441151d25e2]
+
+	ofz#2370 avoid signed integer overflow
+
+	Change-Id: I77bbaf6ad9be5f80c530dd000c110b51c2527b28
+
+2017-11-04  Miklos Vajna  <vmiklos@collabora.co.uk>  [5116e01cbfd183c5e3b75303461b57b5a3acdc78]
+
+	Use auto when declaring iterators and when initializing with a cast
+
+	Change-Id: I9c72f04ed4d3e1bbe75918f851f9a6d300ed875f
+
+2017-10-31  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [49f9404444d028914b9ba16e24160d69e154c02a]
+
+	doxygen -u
+
+	Change-Id: I8b94ad24173fe0fb4629e3c5d558d548da4401b2
+
+2017-10-28  David Tardon  <dtardon@redhat.com>  [c6491596c97a5e212c76b0c944ea45d5f49b05ef]
+
+	save some vertical space
+
+	Change-Id: If064b3b7b41b307594474d200d5e0b939fbf69ed
+
+2017-10-28  David Tardon  <dtardon@redhat.com>  [7b48530cb8cda32f1da7f1edeba4559cc02d6287]
+
+	rely on pkg-config to find zlib
+
+	Change-Id: I06bcdf1a538173b09282b1835d8007476fffe36f
+
+2017-10-28  David Tardon  <dtardon@redhat.com>  [a8f4864d0ea4fab75463f8453d2b495c2e82c4b2]
+
+	drop outdated MSVC project files
+
+	Change-Id: I70c0c12f2bf2b3a9029c67c82288a3863097bbd2
+
+2017-09-28  David Tardon  <dtardon@redhat.com>  [0196df301928608e99906fee4310d0fd11b7b47c]
+
+	avoid output from fuzzer
+
+	Change-Id: I4b755953b17d6e9f9d12431d828432ab94c2ca2c
+
+2017-09-04  Miklos Vajna  <vmiklos@collabora.co.uk>  [a69d168f405490b696f6378967e08a32ab58a821]
+
+	ABWContentCollector: map dc.creator to meta:initial-creator
+
+	librevenge's dc:creator stands for "last modified by" at multiple places
+	(LibreOffice, libvisio), meta:initial-creator is the author key.
+
+	Change-Id: If2641d973b1f436557e1fef355ae05863e25a3a5
+
+2017-08-25  Miklos Vajna  <vmiklos@collabora.co.uk>  [7762c62febdb289f56d34040103b6c0c6cdf835f]
+
+	metadata: emit generator
+
+	Change-Id: Ide402008395e827e8d00b3181e6f27f3799e6166
+
+2017-08-15  Miklos Vajna  <vmiklos@collabora.co.uk>  [774b98ef779275765c0ae7ed121735f9dc90b79b]
+
+	Convert explicit for loops to range-based ones where possible
+
+	Makes the code a few lines shorter.
+
+	Change-Id: I39eb3b0c26dac6daf50750ba72823b2dbfd38c2d
+
+2017-08-11  Miklos Vajna  <vmiklos@collabora.co.uk>  [9ac3671bb3e1010ed13dbb3b32bd0bbdcd01f7e6]
+
+	Convert 0 to nullptr where it's used as a pointer value
+
+	To make the code easier to read, because this means the remaining zeros
+	all mean numbers.
+
+	Change-Id: I4c904506b56946d9f14ac64381995d2bdbdf1e50
+
+2017-08-11  Miklos Vajna  <vmiklos@collabora.co.uk>  [254d9f55ca60e070c11f2c3f7ca196b0a6c5aceb]
+
+	metadata: fix handling of title
+
+	No need to create a custom doc property, there is a stock one.
+
+	Change-Id: Ibe539923d3349eb09bac56e1c6099af6c6ab9320
+
+2017-08-09  Miklos Vajna  <vmiklos@collabora.co.uk>  [f7a691b0cee177339581107dbada25e31a2c074d]
+
+	Mark overriding member functions as 'override'
+
+	This does not affect the generated code (API or ABI), but:
+
+	1) Makes sure that in case the signature of one of these functions would
+	change by accident, the build breaks as the function no longer overrides
+	a base function.
+
+	2) Makes the code readable by explicitly marking all overriding
+	functions as 'override', where previously the reader had to read the
+	interface of the base class(es) as well to find out if the function is
+	virtual or not.
+
+	3) Since 'override' implies 'virtual', remove the 'virtual' keyword
+	where 'override' is present.
+
+	Change-Id: I8b3f2de677ce126e1a6a0844e8081eeef15d7909
+
+2017-07-31  Miklos Vajna  <vmiklos@collabora.co.uk>  [de80bc33983b52ff60d61048384a00f84ffec7bb]
+
+	ABWParser: fix thinko
+
+	processXmlDocument() had a while() loop till ret is not 1, but then only
+	returns true if ret is 1, sounds like it always returns false. The intention
+	was probably that ret is not -1, so check for 0 instead.
+
+	Change-Id: Ied2e378e7d63c190094ea4b3d4bf5ee7123e80e4
+
+2017-07-31  Miklos Vajna  <vmiklos@collabora.co.uk>  [9d879d4e9f96bf737099fb4826b90fee70c8ed94]
+
+	ABWParser: printf -> ABW_DEBUG_MSG
+
+	Which goes to the stderr, so `./abw2odt in.abw > out.fodt` produces a
+	valid flat ODF in out.fodt.
+
+	Change-Id: I3d7256935c0c7eb3336b7d068b9f4a64da404c5d
+
+2017-06-13  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [7675d686b5d7c1729207d7baf4e7a91215b2cbff]
+
+	fix -Werror=implicit-fallthrough
+
+	Change-Id: If8e81cfa6d0764d7eb6346bda11c89a118659e32
+
+2017-05-17  David Tardon  <dtardon@redhat.com>  [fac361d710dce2cd90b3c02430cb5cf04e1ae8cf]
+
+	ofz#1254 the # of columns cannot be negative
+
+	This could cause a big allocation and extremely slow appending of
+	millions of RVNGPropertyLists to a RVNGPropertyListVector in
+	ABWContentCollector::_openTable, because the # of columns is cast to
+	unsigned.
+
+	Change-Id: I0d62659d15c95a2f0828eb9347f6efe1f377ef25
+
+2017-05-17  David Tardon  <dtardon@redhat.com>  [2a17664d1ce065c75094a05ff29a4feded742aa7]
+
+	improve check for stuck XML parser
+
+	This fixes regression in parsing some broken documents caused by commit
+	442b4812cf058481e00c186ef738c990e1a50284 .
+
+	Change-Id: Id4afc8b120c72cb77f27c71c3f1452e100f86faf
+
+2017-05-16  David Tardon  <dtardon@redhat.com>  [39a8567ff10e2b3ca4c7a3be0d6604cb881819f4]
+
+	replace Spirit.Classic by Qi
+
+	Change-Id: I9314e123dbd8346fa7e484f9dede3a0379574bd6
+
+2017-05-16  David Tardon  <dtardon@redhat.com>  [dba3da11773e10ee672be3a91ef523eb82c57932]
+
+	drop unneeded includes
+
+	Change-Id: I0a6d40ff003a71d8538e57a6468b09c58b2a9680
+
+2017-05-16  David Tardon  <dtardon@redhat.com>  [71c7a7b35e3a16cbbe2cec9eddd44bb8a63e9f96]
+
+	drop :: prefix
+
+	Change-Id: I5e7411a87bf9e3443b675984d2f9027638d886d9
+
+2017-04-23  David Tardon  <dtardon@redhat.com>  [4ca3ae4493f48b4b3495f47d550f7fb99fb4eb68]
+
+	drop unused macro DELETEP
+
+	Change-Id: I583b1517af38653950fc137c0cf84b02257738a1
+
+2017-04-23  David Tardon  <dtardon@redhat.com>  [bef23fc8db94b94f7391a64df7fa6871456eb443]
+
+	replace dumb pointers by smart ones
+
+	Change-Id: Ia5497a98c7de264edfb61a78123c288448e476dd
+
+2017-04-23  David Tardon  <dtardon@redhat.com>  [6ce30072d9b5f25ed1ebfc83801b5d533e4ee626]
+
+	replace dumb pointers by smart ones
+
+	Change-Id: Ie10877ba7a83741f57166c079e3b95fc4145ccbd
+
+2017-04-20  David Tardon  <dtardon@redhat.com>  [41d38b20a23c587b76014663346a1b73c5a4a8cd]
+
+	ofz#1198 initialize iterator
+
+	A singular iterator is not equal to any other iterator.
+
+	Change-Id: I24ee1569ee87752c63aa75810e0d8fc4c0f5130f
+
+2017-04-20  David Tardon  <dtardon@redhat.com>  [11139a816eb4048408d481c79065155050b62415]
+
+	avoid possible null ptr deref.
+
+	Change-Id: I0854b339425296d7d5444ca54e497d3ee06ee9f8
+
+2017-04-20  David Tardon  <dtardon@redhat.com>  [208e6eec8535ba20c7b2afdd9f1f07083c99f195]
+
+	move cleanup of xmlTextReaderPtr to a single place
+
+	Change-Id: Idf32d2f27b7c97276e57e05a60270778ed92f611
+
+2017-04-20  David Tardon  <dtardon@redhat.com>  [442b4812cf058481e00c186ef738c990e1a50284]
+
+	ofz#1025 stop parsing if XML error is encountered
+
+	xmlTextReader either does not continue processing the document if it
+	encounters an error or it can get into an infinite loop in some cases.
+	XML_PARSE_RECOVER does not help. So we just give up in case of error.
+
+	Change-Id: Ib5287a4032b2f9600bd389dcfb2e2cc6babf6ac8
+
+2017-04-20  David Tardon  <dtardon@redhat.com>  [1fb548389f0bab6767bf0f656d15328bca0e35cf]
+
+	move this from a separate source to ABXMLHelper
+
+	Change-Id: I6429111a974c51a35f778c02f11d653f5bc48fbb
+
+2017-04-20  David Tardon  <dtardon@redhat.com>  [5115e1a1882e378133c024349a8d329d88ba64df]
+
+	ofz#1023 avoid stack overflow with too big list level
+
+	Change-Id: I3810cfc334f5c9053e7f2302fe3034d87d57bc70
+
+2017-04-19  osnola  <alonso.laurent@gmail.com>  [3214f15d8296f203821d71b2a0800a14b2f0ca32]
+
+	include config.h for HAVE_FUNC_ATTRIBUTE_FORMAT
+
+	Change-Id: I6162b62d4661345c2bd16c04cf69cd1bacb31240
+
+2017-04-19  osnola  <alonso.laurent@gmail.com>  [57f11c3ced46dcd25f670ae889ba4e37ff3f184a]
+
+	retrieve textbox frames
+
+	Change-Id: I3b6f4b8186feedfb9932098305f99a40a72a5726
+
+2017-04-19  osnola  <alonso.laurent@gmail.com>  [b9044ff16623db8c3651ee3d3055bca206c5aa9e]
+
+	simplify the code
+
+	Change-Id: Id4b7c753ace8e1ca612128b3d936bc3b347a48e1
+
+2017-04-19  osnola  <alonso.laurent@gmail.com>  [6b96e0cb63d27352b89953a3bbe29693d845578a]
+
+	try to retrieve some image frames
+
+	Change-Id: I2d4ea674485da9afb68447af6e07a7a8eae94411
+
+2017-04-19  David Tardon  <dtardon@redhat.com>  [1b5518ab221a64f9c673ebd83c32ccb875ec6ee8]
+
+	ofz#1020 look for some invalid table structures
+
+	Change-Id: Ia81b62f648d17e1592189cae64ed1eaec7eb0a2f
+
+2017-04-17  David Tardon  <dtardon@redhat.com>  [13b8cb1cba26b229e39666568d6760b7c91cf72d]
+
+	replace home-grown function by boost
+
+	Change-Id: Icaaa733ce09a386207d78498c27837dbaa406e78
+
+2017-04-17  osnola  <alonso.laurent@gmail.com>  [1ff9c4c4755123cf31b185a0416394f69c48d064]
+
+	try to retrieve some fields
+
+	Change-Id: I986deea39bd8f8b865ffc7b7bcf3fd5d59336b7a
+
+2017-04-17  osnola  <alonso.laurent@gmail.com>  [74ef6f9badaa00db606dae6fdaa4b48bfeec8b27]
+
+	try to not ignore some significant spaces
+
+	Change-Id: Ie866f9f8fba8db8c1b0f98e1d9f2229b08e4c53e
+
+2017-04-17  osnola  <alonso.laurent@gmail.com>  [91a768b931faca5cfb78e13f84c58c16ac5ff2a6]
+
+	set page size to A4 if it is unknown
+
+	Change-Id: I7bdfc6a2eeeaf37fd480c10bd4088fb2606162a3
+
+2017-04-15  David Tardon  <dtardon@redhat.com>  [11e6276b761715bf8e516ac3342ee26b111af388]
+
+	add format attribute to debugPrint
+
+	Change-Id: If89bced0a52e758941d444d41cd87e87641856b0
+
+2017-04-15  David Tardon  <dtardon@redhat.com>  [86ad52efde6b84907549adf5974909d381e04ee2]
+
+	clone is not used
+
+	Change-Id: I45e85d68cef70b695855fb9c1f7702bdfed08068
+
+2017-04-15  David Tardon  <dtardon@redhat.com>  [260820fd5bd415baaad9dca877395c96bf177fbe]
+
+	change manual memory management to std::unique_ptr
+
+	Change-Id: Iccd03973aa848522557ba2c5d936ef71d74b4a9c
+
+2017-04-15  David Tardon  <dtardon@redhat.com>  [42ecb9bf53aab3703cfb96e5fd3cf1ff32ab6a66]
+
+	boost::scoped_ptr -> std::unique_ptr
+
+	Change-Id: Ief360518046a65499fa6ffb894014e56d782c00e
+
+2017-04-15  David Tardon  <dtardon@redhat.com>  [0d97470dfdd0aa64ff81d584558ee1f282a0bc27]
+
+	boost::shared_ptr -> std::shared_ptr
+
+	Change-Id: I910492f8c884e350a5301d8c7ccd403f7217c176
+
+2017-04-15  David Tardon  <dtardon@redhat.com>  [9cf66ba75ce809493be97f542525e75ac57f3a2d]
+
+	switch to C++11
+
+	Change-Id: I049fc4bf37667192b0ae997ad150cde3632d8df3
+
+2017-04-15  David Tardon  <dtardon@redhat.com>  [266a21a095c8fe41450e7094141429121d983439]
+
+	clean up .gitignore
+
+	Change-Id: I356c8c0f2c6b0403bf45bc9216e5efdf50b50df2
+
+2017-04-15  David Tardon  <dtardon@redhat.com>  [d62517f19fff4c6a8c36a8a361fd8838e3923739]
+
+	only ignore generated files in m4
+
+	Change-Id: Ibb9e5bf67157a0a5cb3989ed4e0e36027f702fb0
+
+2017-04-11  David Tardon  <dtardon@redhat.com>  [50b2b185cbcff6079756b747fb69b4e4c6262ae5]
+
+	replace repeated increment with a single assignment
+
+	Change-Id: I868b82ebe8c9f731b17e2adac163a952304824c2
+
+2017-04-05  David Tardon  <dtardon@redhat.com>  [a1f65e1c00c5f466c5de536ecc6c681a462cbb35]
+
+	ofz: check the stack for emptiness before accessing top
+
+	Change-Id: Id5ea6837e9df2e823437f3e95031b5e22ce91979
+
+2017-04-05  David Tardon  <dtardon@redhat.com>  [9a2e68fe2b3ac77b9344b8280329180a0c37c95c]
+
+	use constant
+
+	Change-Id: I47fadf2f21ef1cf652409995df1c8e58db6f11bc
+
+2017-04-02  David Tardon  <dtardon@redhat.com>  [cc311975203a18f5cb8df7b7eab3064566ff62b6]
+
+	passing null c-string to std::string is undef. behavior
+
+	Change-Id: I54a0037ab133a91a8926de8e9cc8a91b61c01645
+
+2017-04-02  David Tardon  <dtardon@redhat.com>  [baa52222078aa9d7774938eebfd1710b52b543b3]
+
+	avoid memory leak
+
+	Change-Id: Ia214d2e6ea461e4310d007093e457bb0935cfac3
+
+2017-04-02  David Tardon  <dtardon@redhat.com>  [7792e03501caae09ecd3536cbbe80678a12eaa2b]
+
+	avoid memory leak
+
+	Change-Id: Ia3765cf16dfb3585443020f185dd1bc46ab38725
+
+2017-04-02  David Tardon  <dtardon@redhat.com>  [27ab61071e7f88e8e1c840d4b8d1c97f19293d3f]
+
+	avoid memory leaks on exception
+
+	Change-Id: I17075162b6e8919d28e80709b8e50833bb2601bc
+
+2017-04-02  David Tardon  <dtardon@redhat.com>  [22356b9b04d0fe552d9d956698fe00c03a28b3c5]
+
+	avoid leak if state stack is not emptied
+
+	Change-Id: Id5e1716c5cd478cd58bd67695d52629505e43329
+
+2017-03-31  David Tardon  <dtardon@redhat.com>  [44495fdcf32d12ad9e43e571d3ff84a4dab5bbe5]
+
+	astyle
+
+	Change-Id: Ib4251ff7178ddb2aad4a25332637f680595804de
+
+2017-03-31  David Tardon  <dtardon@redhat.com>  [10c79cee8d4711288bddc7ec2b6588dcb57cb77e]
+
+	add fuzzing driver for oss-fuzz
+
+	Change-Id: I703e02d3a0bbaa66bd55bd717005df5bcbb8b09e
+
+2017-03-16  dennisroczek  <dennisroczek@libreoffice.org>  [d1ee34977a8033a6ff8049a34bd1cdb474f946d4]
+
+	fix typo: "the the" --> the
+
+	Change-Id: Ib6d374e3e784c78a06723f77775b9794354d0c05
+	Reviewed-on: https://gerrit.libreoffice.org/35166
+	Reviewed-by: Julien Nabet <serval2412@yahoo.fr>
+	Tested-by: Julien Nabet <serval2412@yahoo.fr>
+
+2015-12-27  David Tardon  <dtardon@redhat.com>  [b8e023f11a7178a8486bbe407782e17bea2a0deb]
+
+	drop undefined variable
+
+	Change-Id: I5f406852ebb47e6e567146b48be30ccbaa5c468d
+
+2015-12-27  David Tardon  <dtardon@redhat.com>  [20f4a2b430d516336eae653f9548b033ff8eeb27]
+
+	simplify dist. and inst. of headers
+
+	Change-Id: Icbcd229edf1ea09d1e764aec836ec47a44255ea5
+
+2015-12-27  David Tardon  <dtardon@redhat.com>  [77b46b33b384a27f469938bdcf6299e264175ddf]
+
+	make --help output more help2man-friendly
+
+	Change-Id: Ie1ba56de27536f6ae8a529559cdf4c3de8140b9d
+
+2015-12-20  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [f694293ad44226e31cb549f6418907c78e8d117f]
+
+	Better gperf dependencies
+
+	Change-Id: Ibd005884f17271763910829595ae64785edae510
+
+2015-12-19  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [c8e673fd7eb836a1750d599586dcd34f5d551528]
+
+	Fix build with recent clang that chokes on "register" keyword
+
+	Change-Id: Iddf0992fbc852b446bbded746a8af160d6e36a47
+
+2015-12-13  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [9bd64c2b3a72eb2b4b58e3f572aa180a16315cb4]
+
+	Fix dependencies
+
+	Change-Id: I766653b9cdf086ad3a70f5c3941c32f285d564c5
+
+2015-08-30  David Tardon  <dtardon@redhat.com>  [ee2d0729315888d1847587ad556470d2fdc883a7]
+
+	fix build with boost 1.59
+
+	Change-Id: I5645629526a8d9d896e4faeb2c7b9ea88540fd23
+
+2015-02-02  David Tardon  <dtardon@redhat.com>  [7ea0b5530cf321cd80231b84421e4c107d1cc479]
+
+	remove bashism
+
+	Change-Id: I8889e68716baf878ed1a01ddeea84b567ebddbf2
+
+2014-12-21  osnola  <alonso@loria.fr>  [f83fbd43e9a17c7f243f6694fb5640a63811a982]
+
+	Correct some warnings, retrieve borders, improve list retrieving...
+
+	Change-Id: Idd7dfc726a2519b273836342e8eeb9f459f19cf5
+
+2014-12-21  David Tardon  <dtardon@redhat.com>  [ae66e899f542cee1cc8f44f9b6b8770ff0b2b7a8]
+
+	simplify calling of astyle
+
+	Change-Id: Ic7b7bf6ea92f0b725eb20acb956bc2c0088ef750
+	Reviewed-on: https://gerrit.libreoffice.org/13576
+	Reviewed-by: David Tardon <dtardon@redhat.com>
+	Tested-by: David Tardon <dtardon@redhat.com>
+
+2014-12-20  David Tardon  <dtardon@redhat.com>  [2f372e8adf8e6b1f8cf70f08adddcf66be54d94a]
+
+	coverity#1259905 do not let AbiDocument::parse throw
+
+	This also fixes coverity#1259906 and coverity#1259907 .
+
+	Change-Id: I55d892517ac93ca43478d51d8e4a20c704ff6790
+
+2014-12-20  David Tardon  <dtardon@redhat.com>  [a65eb81c5e9d9da0548eb9066f9dde77a7328cc3]
+
+	coverity#1259904 dereference before null check
+
+	Change-Id: If53074b31a821b0764acc9e9f1b0f9d7894e2e5e
+
+2014-12-20  David Tardon  <dtardon@redhat.com>  [0822e285c7acda1e4457aa9a60e9d69dafce9f80]
+
+	prepare for a release
+
+	Change-Id: I7c65bc7736fb18ae1ee0be8cb059c942bda52389
+
+2014-12-20  David Tardon  <dtardon@redhat.com>  [52821af0b9dcd4f0856f2952e54bc64e0d9342a5]
+
+	fix copypasta
+
+	Change-Id: I53bbd861af92e833f20333fc6db690b482bc313c
+
+2014-12-20  David Tardon  <dtardon@redhat.com>  [12bf83bf39fb11151c14c2615806eb9fa2c46c02]
+
+	fix processing of mixed paragraph content
+
+	I would much prefer to do this in the parser, but calling closeSpan()
+	unconditionally just seems wrong and I do not want to introduce a new
+	function to ABWCollector just to be able to check if a span is opened.
+
+	Change-Id: Icf6950a5bbc8d401f5773270d23a45ddf2e41dcc
+
+2014-12-20  David Tardon  <dtardon@redhat.com>  [1f4ef02f77320dfd4de3db6c635c4f9935cd3fa8]
+
+	fix condition
+
+	Change-Id: I359a44e56ffecaa6d01b561a312cea9b3c1a4575
+
+2014-12-20  David Tardon  <dtardon@redhat.com>  [6f8f69d5e5d2511f21dc6014628f4abb6087a9ad]
+
+	print debug messages to stderr
+
+	Change-Id: Ic70e939cfe68a81165418482c2dc9e07473ef0b7
+
+2014-12-19  David Tardon  <dtardon@redhat.com>  [4712f04685caf87c48d448ff14ad0a6341cc1e62]
+
+	import headings
+
+	Change-Id: I49e1ce400fe1b3162170f357400a98cba182fd66
+
+2014-12-19  David Tardon  <dtardon@redhat.com>  [eb2aab1972a7239488ddc86ce1c73c1124ab68ba]
+
+	document props are global
+
+	Change-Id: I4c4c2d56fcd4c616336d37e0826430e132887151
+
+2014-12-19  David Tardon  <dtardon@redhat.com>  [8f0d36795e809d47113e20eac718b29675801614]
+
+	import metadata
+
+	Change-Id: I03f210616f7d2a9d5e24220b95a0334e63760a5a
+
+2014-12-19  David Tardon  <dtardon@redhat.com>  [78ac2ee4cebbc7755cfda36851af9a9e0f9bbc96]
+
+	set writing mode from document default
+
+	Change-Id: Ia04d00310cb73d6af6bb19cb21c4ec52011d5969
+
+2014-12-19  David Tardon  <dtardon@redhat.com>  [92e48a98cb470e8dc76c6873bc30198a36f81d77]
+
+	eliminate some copypasta
+
+	Change-Id: I295b98876b19d514d114d115ef8ce8e7ce00d6d1
+
+2014-12-19  David Tardon  <dtardon@redhat.com>  [b2290b8a30bd9e12bb4d8ab2079a25e8011d1258]
+
+	use typedef for property map
+
+	Change-Id: Ia29e9fa6084696105783fa09f92738f2c5349496
+
+2014-12-19  David Tardon  <dtardon@redhat.com>  [93baf6994778311b3ffd8afd2e98dfa15389e737]
+
+	add support for text language
+
+	Change-Id: I4e184195c3e54d54a6627aec110fc63d250fb211
+
+2014-11-24  David Tardon  <dtardon@redhat.com>  [acafe5bf1dc491edab3980a7bb3a91f05fd48e03]
+
+	add compile script to .gitignore
+
+	Change-Id: I0fbd5cfb63031b89c48dee9f1634c3422ef0cd33
+
+2014-11-24  David Tardon  <dtardon@redhat.com>  [d80d7c7730a4599613552e69ac65e9ec76525fcb]
+
+	only export public symbols
+
+
+2014-06-16  Michael Stahl  <mstahl@redhat.com>  [cba9f861292cd3e1a3c2e5baaccf8f87a42cfc34]
+
+	libabw: avoid some quoting issue with Win32 make
+
+
+2014-05-23  David Tardon  <dtardon@redhat.com>  [3c0b37ba5d225ea71f42c3179f4438b12ec5abcb]
+
+	prepare for a new release
+
+	Change-Id: I34cbd95ad975afdfc8892c38ebe06c90030b37fb
+
+2014-05-23  David Tardon  <dtardon@redhat.com>  [51e28e34f0bfb5e4a0eff2e444add3f62b796a23]
+
+	put the newest version on top
+
+	Change-Id: Icb44c9efd0246b4c17334b357c1454bd60a53dc5
+
+2014-04-16  David Tardon  <dtardon@redhat.com>  [f43bb981cab1df2daa5823a3d7d53c54170cca92]
+
+	add other used projects to .pc file
+
+	Change-Id: I7dfe0a26b53857b9ac7625ff973540bc3eeaf08a
+
+2014-04-16  David Tardon  <dtardon@redhat.com>  [2d459731222782fcfc0833698c4acc74ba2cf597]
+
+	require librevenge-stream too
+
+	Change-Id: I2bc0ebad7e4734a6fc42a7d0fae9755d07f77600
+
+2014-02-10  David Tardon  <dtardon@redhat.com>  [0bcf974769248d8e7b5b35733d2c655653585903]
+
+	drop stray files
+
+	Change-Id: I45260ebcee40ce2b12196bf95dda573b1ce38a49
+
+2014-01-29  David Tardon  <dtardon@redhat.com>  [f16e6cf59bdc681d410cd356e4eff89abd98e372]
+
+	CID#1165311 missing break
+
+	There is no need to set ret if we are going to return immediately
+	anyway.
+
+	Change-Id: I390a4f67c907d75c554673f976b952e1008c94ae
+
+2014-01-29  David Tardon  <dtardon@redhat.com>  [f3723f79a20de230b3159b8d73debb567bb520f4]
+
+	add myself to contributors
+
+	Change-Id: I8fea4c66e58690ef808b8ae48bcb1e3186deb07d
+
+2014-01-23  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [1b941a8b1e2aa1909c1f6a0d2c8aeeb04f8ec4b2]
+
+	Ignore cells if not inside the <table></table> tags
+
+	Change-Id: I5dfc2d05a6191f9cbf97d300a9ca1624b40e21e9
+
+2014-01-21  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [393f2b5bb8bbb802526771baf1087725cf920452]
+
+	std::string constructor with null string might crash in some cases
+
+	Change-Id: Ie692ffbece7235fe32abf46e84d4f2a29442e96f
+
+2014-01-17  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [bd1b2b63526efecc3d57c12a801b14dae7a3f47a]
+
+	Put as much as you can into the try block
+
+	(cherry picked from commit 095b595a81cc18f3f16960c202079d2e961d1634)
+
+	Conflicts:
+		src/lib/AbiDocument.cpp
+
+	Change-Id: Id9c4193228bc7af7da685edb0db07c91f6c8de24
+
+2014-01-17  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [0c16f59fe7a3aed7cc055a81facbbc1fb35998d7]
+
+	All invocation of xmlReaderForStream use the same options
+
+	(cherry picked from commit e68f8f29ec365cc07edf6f1b1dc15c7f75f40051)
+
+	Conflicts:
+		src/lib/ABWXMLHelper.cpp
+		src/lib/ABWXMLHelper.h
+		src/lib/AbiDocument.cpp
+
+	Change-Id: I6f61c92db22114e3592cd5d24516bcd879422566
+
+2014-01-16  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [720f251278f53d3066670eef60eb2611aa95bbbc]
+
+	No need to use the stuff from inttypes here
+
+	(cherry picked from commit 2b21394e42767ece602741538e485c2ec3cb5c85)
+
+	Conflicts:
+		src/lib/ABWStylesCollector.cpp
+
+	Change-Id: Ia8087ed0b18c8ed12ec75d272bf8f409038f33b0
+
+2014-01-15  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [87e73a202a1ea96fbf361f32e71ad8efc42367d0]
+
+	Strip first tab in a list text
+
+	Change-Id: I46a4d0f36b2d255a30c669f24dabe65852c35d61
+
+2014-01-15  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [902454110899751868ba9ab56f0ef554f8239eb5]
+
+	Some NEWS
+
+	Change-Id: I47e4a37628da83d467bbe757efe6f336b30cbe32
+	(cherry picked from commit 9817ef41ad922387d56a0a8c5abb862977f33dea)
+
+2014-01-14  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [b643e3b093e21f99257b147ea40089b9dd5aa809]
+
+	Some Fridrich less
+
+	(cherry picked from commit 87ebca42ee32d9953af77d939cbbf527d885ce82)
+
+	Conflicts:
+		src/lib/ABWZlibStream.cpp
+
+	Change-Id: Ic1b972d90b0d4fb76aa294190eaa1014d68b17ca
+
+2014-01-14  David Tardon  <dtardon@redhat.com>  [387f0c76bfa22db281145bdaef735500d1645e1b]
+
+	add git-review setup
+
+	Change-Id: Ifcf4a5e6868d9572397bbf7b6a16899e200cd617
+
+2014-01-14  David Tardon  <dtardon@redhat.com>  [c6e64450e877c8594ad443e8e4ea303be57a205a]
+
+	set git hooks automatically
+
+
+2014-01-14  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [57e1ee75d48303cb05e2060fd719b49163d5db5c]
+
+	Support also compressed zabw documents
+
+	(cherry picked from commit d04605a6e7c9179686714bb3d9f5178f90584166)
+
+	Conflicts:
+		src/lib/AbiDocument.cpp
+		src/lib/Makefile.am
+
+2014-01-14  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [96888911318a3923b22e707989de9ad4ad690e27]
+
+	The left position of the list is already factored into the open*ListLevel
+
+
+2014-01-13  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [964e40650dfb714f9c628b89e2f390b287a4e9c6]
+
+	Fix a silly with footnotes and endnotes
+
+
+2014-01-13  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [184a12501019486285ad71b57b9d07b22e706474]
+
+	Make LO build easier
+
+	Conflicts:
+		src/lib/Makefile.am
+
+2014-01-13  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [a773a802c2b66e6cda8a44be59ad147daa495821]
+
+	It seems that AbiWord gets the real number of columns in the table this way
+
+
+2014-01-13  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [717a03f9bbbfa6c3ad6bd6a42be266e5c9f2d61b]
+
+	Write dummy list levels when a list starts with level bigger then 1
+
+
+2014-01-13  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [1ed58902ba50c922c321a74699a8c78ff0a51379]
+
+	More robust list handling
+
+
+2014-01-12  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [6073137e510ee7826587c5a930017af8908cec22]
+
+	Fix handling of para margin-bottom
+
+
+2014-01-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [2e42ba4ec932441adf5877f04259df1a6f5c3c31]
+
+	Belts and braces
+
+
+2014-01-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [56cd4ff5f418b31496ad88fd9487c0670dc2144b]
+
+	Ouch, master back to librevenge
+
+
+2014-01-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [8d39594681432c632af08d7c77b8c71e9ca40da4]
+
+	Fixing the libwpd-0.9 logic of lists
+
+
+2014-01-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [e5a561c226967ee07ac95ed7706b3716477f8627]
+
+	Port back to libwpd-0.9
+
+
+2014-01-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [3cf58fd0b328f15006363c2b7e171420d976830e]
+
+	Trying to put master on 0.1.0
+
+
+2014-01-11  Miklos Vajna  <vmiklos@collabora.co.uk>  [2c081e895cb4b62e8f2c658f2b20d66adc0ed382]
+
+	Spelling fixes
+
+
+2014-01-10  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [fc61bae62b0283422ab5fcd71163a612108f11fe]
+
+	Initial list support for ABW documents
+
+
+2014-01-10  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [1a595ca12f1da21a97becb3360e88ec1f52a2c92]
+
+	Some more progress towards list elements
+
+
+2013-12-26  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [15e783bf6478b9adf098adf8f15e87817c0955f7]
+
+	Undefined symbol
+
+
+2013-12-25  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [f4e2519dbc2fb86d5d59b163333759237ec7058a]
+
+	Some stubs, constness and avoiding some RTTI later
+
+
+2013-12-25  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [355b19ba1336eba76a19a3907330e9e9baa8613e]
+
+	Determine the shape of a list level in first pass
+
+
+2013-12-24  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [adba1cf7e539841c8af67a5a646a5acca9026777]
+
+	Some more work towards the list support
+
+
+2013-12-23  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [7a1ca0f834af90fd0dbf84dbf7d0ff3351bf2da5]
+
+	Some more code towards proper list handling
+
+
+2013-12-22  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [5b1ac3340970946c1a78ea8d96fc8a5ec485b9f6]
+
+	Keep the list styles somewhere
+
+	Still leaking, but this is not the final act
+
+2013-12-21  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [94bb7b6dbb7ab98b1edd406f9d13e944ad9a3035]
+
+	Types to hold list levels
+
+
+2013-12-21  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [93acb81588ab36abc15718e3ecc8d5769c3fb71d]
+
+	Read "l" elements
+
+
+2013-12-18  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [42d2fef2b35f67826b443753aac6d95e17f7c2c0]
+
+	Export only needed stuff on Windows
+
+
+2013-12-17  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [d98b8cab12fe3451cb22826ebfe98f5c408c3ff7]
+
+	Some cosmetical changes
+
+
+2013-12-12  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [b6486a49dd5328cae4ece238620495908c30710d]
+
+	Add the styles of under and overlines
+
+
+2013-12-12  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [e69d2dfc47ece4843b200672d5ac0924d4183fea]
+
+	Adapt to changes in the RVNGTextInterface
+
+
+2013-12-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [ee732654ed5ac11bda3dd8d55b8e59ed1627154d]
+
+	Since we are only appending and then iterating over it sequencially, use std::list
+
+
+2013-12-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [0d6450578d4828f751699de0dd219b9596d41039]
+
+	Make the column/tabstops parsers more robust
+
+
+2013-12-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [7fca747512368388c8b4b6f684b98c44cce8b7f2]
+
+	Extension "inch" was seen in the wild
+
+
+2013-12-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [b3e7e1ac5609d6e72b7352a1a047e11c4641ffee]
+
+	Header/Footer support
+
+
+2013-12-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [78955e70fe2a0e0b7ceec3bc496f70dd4a83dc62]
+
+	Complicate the stuff a bit in order to be able to handle the headers/footers
+
+
+2013-12-11  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [ca68cea2c25fc2a9d2e818215bc0bd13c780760e]
+
+	Allow equal identing of functions
+
+
+2013-12-10  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [8a5cca1e461095f49a8c835426675cfa7d322763]
+
+	Some whitespace for my old eyes
+
+
+2013-12-10  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [6ff2c57e1873e583264e942290c437ebceaf7adf]
+
+	Some work towards supporting the weird abiword headers/footers
+
+
+2013-12-10  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [4c9866bfc342c2c84e4d5b641618a043c304497e]
+
+	Basic ABWOutputElements framework for delaying content output
+
+
+2013-12-10  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [17fd37292d8fa13f24a17571134c9c59ae2c782e]
+
+	Wrong modelines
+
+
+2013-12-10  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [d110030dc24ff83e94b8378a0d051e7eb1defd5c]
+
+	Circulate, nothing to see here
+
+
+2013-12-09  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [15f0a95d78e3718111836cfada7c6750d8e2303d]
+
+	Handle embedded images in AbiWord files
+
+
+2013-12-09  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [7beea24586dc9967b463676520e00492403bffa4]
+
+	Framework for collecting binary data objects
+
+
+2013-12-09  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [7d2230e1e403246ee5e8cf75eaacbc1f5d6b7fbd]
+
+	Fix loop with documents ending just after a table
+
+
+2013-12-09  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [f7e5dba8839c2169743fee7f3927ddcd80fcedcd]
+
+	Second pass to get some properties of tables without column definitions
+
+
+2013-12-09  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [9fd2f3666cf09c1e5b096d157aebf82ed56f4936]
+
+	Set groundwork for 2 passes
+
+
+2013-12-09  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [8c7fe405bff359c8f84f18697f6c7ddd2aeb1bda]
+
+	Trying to handle right the nested tables
+
+
+2013-12-08  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [04cf9ed8327f1fd4ea9f3f6e460b8e655c7d1458]
+
+	Initial import of tables (still nested tables don't work)
+
+
+2013-12-08  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [b621d4bc7c57d17e88966d907f4dbf770f119c11]
+
+	Some little robustness refactoring
+
+
+2013-12-08  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [088f9a42951c11c2884bb2ef53d6651737ca95ea]
+
+	Laying ground for support of tables
+
+
+2013-12-08  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [e8f5c9a75aea3be19fcca265ffced11f2a4f40c8]
+
+	Tabstops
+
+
+2013-12-08  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [f4d4fd885698c7ba73f075331f28a394f7864db8]
+
+	A comment for unsuspecting reader
+
+
+2013-12-08  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [a7ec86bd73cee656bd75c62819a665d0cee29df4]
+
+	Avoid constructing std::string from NULL + avoid some superfluous temporaries
+
+
+2013-12-08  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [5535638105cf96b3016c4622128c97c4090a125f]
+
+	Small cosmetic changes that only Fridrich could ever make
+
+
+2013-12-08  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [f2c04bdc111617ef9bcd818a48c2f065884d1df7]
+
+	We are spiritual
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [417beae1f78fe5262ac08f4a32b33e2ea0870fe6]
+
+	Slightly shorter version
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [886b93671fff11dea1e5272a2aef6e9510359b16]
+
+	Handle empty elements
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [7a16ecfa1f846abcb12221de513b4847f54c5d1b]
+
+	There are abiword documents without the abiword namespace declaration out there
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [835cb01ca9c841dfeec0f0873c0d12a747e58b39]
+
+	Some more simplification
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [81289b340bdb85d7d8f8f2f504b0539c04db3e6b]
+
+	Extract some repetition into a function
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [5fc43ee998cf4efa3cfdaea3f3af727b3d00e96d]
+
+	Some improvements
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [8e3bee4e99996c8ba317ae4746d8ae01a72e8a31]
+
+	Some refactoring to make the parser more intelligent
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [eb848daf058b7cb59ae51c100c018df0293ff3d0]
+
+	decodeUrl + astyle
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [0542cbc4e29bea18513250a5cec26d0e17091960]
+
+	Function to parse the "table-column-props" string
+
+
+2013-12-06  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [bcf802589e71ff88ad2965fd29cd9abb6d412395]
+
+	writing-mode, orphans, widows
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [2012e0dd79545f46462649f10bd18f8cb9b0f0c8]
+
+	These two can be static now
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [f54cf903f885e6bcaa7cd84c7a33813e09e0153d]
+
+	Abiword does not balance columns
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [7ddf65e2c20dad890cd01fc829ffcdd61ea68551]
+
+	Manual page and column breaks
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [16fa99811515bcd5ea28b765770ad64a01aaa638]
+
+	Parse hyperlinks
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [2142f77a04fd20da95650153c02819341879c731]
+
+	Some defaults + scope of validity of properties
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [565dba42244396db1e5e2c67371e980d1e1daaab]
+
+	Span properties
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [edcde16c2e093e23f4ae82dd44faff1599aa8788]
+
+	Output some para properties
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [fbdb5676d46389c4fea670707c5159b7bf087019]
+
+	Output columns
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [479342ca7524f28e6d570b5d9a031d5e185474fa]
+
+	Output rudimental section properties
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [8c015f67b280af7cc7f34bfd965d12ec8aee8cec]
+
+	Don't output too many identical page styles
+
+
+2013-12-05  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [e52df55a66b6e26837ec1c4ec6b32eafd803ec88]
+
+	Get page margins
+
+
+2013-12-04  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [8e522fd2924fdf844a463efa12a074e49df37992]
+
+	Collect styles and handle page size
+
+
+2013-12-04  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [0f09bb15b21d597365f13bab97d01689962e04e0]
+
+	split the strings in two passes to cater for badly formed strings
+
+
+2013-12-04  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [a72284125452675e4e6e315f20f0a83425d1b16e]
+
+	Stuff the stuff a bit
+
+
+2013-12-04  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [3f5f0418a1aa98246084fa60c754e9745c8d61bc]
+
+	adding ABWStyles.cpp/h
+
+
+2013-12-04  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [7035ce423533148163b77fda192cd5a62c421d72]
+
+	Generic parser of the props string
+
+
+2013-12-04  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [ddaf9a3d210b9c023ab3004b3528fbdc4be6575c]
+
+	Some more parser goodness + helper functions
+
+
+2013-12-03  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [7bf2f03824986e2b9495f48d57248a0849265975]
+
+	Some improvements with the text output
+
+
+2013-12-01  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [ec11f08e6dbcb53a42580ef65eb5f13bfeba1f37]
+
+	correct namespacing
+
+
+2013-12-01  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [62ef181286334d734d6d877cce6abdf9d8c97c61]
+
+	Let content handle opening and closing of elements
+
+
+2013-12-01  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [c51db70f7bd762e05cc2155a3b7d6b1ae18a2afb]
+
+	Some more automatic keeping of the callgraph
+
+
+2013-11-30  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [e754d852a5cffa4bd1f1ab54ec75ba4198d1faad]
+
+	Don't bother with constants
+
+
+2013-11-30  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [c35c03b8f3f3dc9aaf6855758bfd8c70f5498557]
+
+	Separate tabs from the text stream
+
+
+2013-11-30  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [46e6ad209b039f3a2895e74b6439ebdef428cae0]
+
+	Separate insertSpace
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [9e29fc1f000be409fead0f0357de79c60b211f42]
+
+	Removing some stuff that is not necessary
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [81042a2959f7e339ebc908406ff43550ee16e728]
+
+	Spit some primitive text out of abiword documents
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [99ffff90905f4c6f7a8a9b4e0ea60b58aa5d42a8]
+
+	Some more xml-parsing based on the awml.dtd
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [f84d26c809970b727dd66452965762c138878401]
+
+	Add all elements from the DTD
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [f99cd12e87de9f5ae4449cd39f9e38b677cb3a86]
+
+	Dry-parse the AbiWord xml elements
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [6bbd6b3193cf106a4b1edbbde9b5dc577d2f70d4]
+
+	Token map vor AWML tokens
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [cd3a9bf16d69cf074df578b0e3824dca5351aee1]
+
+	Linking with libxml2
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [4cc997a9bf7717346d5276448602b5cec6c838ca]
+
+	ABW is xml format, so some xml helper stuff
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [ded1b3921734fecbc45d853dc0c2cc1ba6eb9ef8]
+
+	Change astyle stuff to the gerrit version
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [9dffbec46cf47ffb52d60ce3c130617eb8dd04db]
+
+	Check for libxml2
+
+
+2013-11-29  Fridrich Štrba  <fridrich.strba@bluewin.ch>  [daa3ecf432d0decf1fdb05703629e94636e393be]
+
+	Initial libabw skeleton
+
