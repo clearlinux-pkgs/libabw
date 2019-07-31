@@ -4,15 +4,15 @@
 #
 Name     : libabw
 Version  : 0.1.2
-Release  : 2
+Release  : 3
 URL      : https://dev-www.libreoffice.org/src/libabw-0.1.2.tar.xz
 Source0  : https://dev-www.libreoffice.org/src/libabw-0.1.2.tar.xz
 Summary  : A library for reading and writing AbiWord(tm) documents
 Group    : Development/Tools
 License  : MPL-2.0-no-copyleft-exception
-Requires: libabw-bin
-Requires: libabw-lib
-Requires: libabw-license
+Requires: libabw-bin = %{version}-%{release}
+Requires: libabw-lib = %{version}-%{release}
+Requires: libabw-license = %{version}-%{release}
 BuildRequires : boost-dev
 BuildRequires : doxygen
 BuildRequires : gperf
@@ -31,7 +31,7 @@ sequence of commands:
 %package bin
 Summary: bin components for the libabw package.
 Group: Binaries
-Requires: libabw-license
+Requires: libabw-license = %{version}-%{release}
 
 %description bin
 bin components for the libabw package.
@@ -40,9 +40,10 @@ bin components for the libabw package.
 %package dev
 Summary: dev components for the libabw package.
 Group: Development
-Requires: libabw-lib
-Requires: libabw-bin
-Provides: libabw-devel
+Requires: libabw-lib = %{version}-%{release}
+Requires: libabw-bin = %{version}-%{release}
+Provides: libabw-devel = %{version}-%{release}
+Requires: libabw = %{version}-%{release}
 
 %description dev
 dev components for the libabw package.
@@ -59,7 +60,7 @@ doc components for the libabw package.
 %package lib
 Summary: lib components for the libabw package.
 Group: Libraries
-Requires: libabw-license
+Requires: libabw-license = %{version}-%{release}
 
 %description lib
 lib components for the libabw package.
@@ -80,23 +81,31 @@ license components for the libabw package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1534617263
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1564555238
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1534617263
+export SOURCE_DATE_EPOCH=1564555238
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/libabw
-cp COPYING.MPL %{buildroot}/usr/share/doc/libabw/COPYING.MPL
+mkdir -p %{buildroot}/usr/share/package-licenses/libabw
+cp COPYING.MPL %{buildroot}/usr/share/package-licenses/libabw/COPYING.MPL
 %make_install
 
 %files
@@ -125,5 +134,5 @@ cp COPYING.MPL %{buildroot}/usr/share/doc/libabw/COPYING.MPL
 /usr/lib64/libabw-0.1.so.1.0.2
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/libabw/COPYING.MPL
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/libabw/COPYING.MPL
