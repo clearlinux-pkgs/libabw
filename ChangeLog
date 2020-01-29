@@ -1,3 +1,66 @@
+2019-08-17  David Tardon  <dtardon@redhat.com>  [5b6dfeb2ad6d66ae7b91f54eef6e1f170cc4d1ec]
+
+	cid#1452381 avoid use of invalid iterator
+
+	Change-Id: I91e3f2e5a191b4b476b8b0626b4ab7401dd5ab92
+
+2019-08-17  David Tardon  <dtardon@redhat.com>  [2daca538adca1e9dad25b9f9bfa1fdac5fa8908f]
+
+	prepare for a release
+
+	Change-Id: I22d587ce4ac93169e1faa5dff35defb6e4fb4873
+
+2019-08-12  David Tardon  <dtardon@redhat.com>  [d62fd44a364ec0dcf7baf7f9a8f0fb966df12679]
+
+	do not parse entities
+
+	Change-Id: I367e3e45cb38b8e863da753900ce5f79a840e171
+
+2019-08-07  David Tardon  <dtardon@redhat.com>  [0c8e6f4e0f4381f0cf528bfead4816ce90bafa8a]
+
+	WaE: implicitly declared ABWData::operator= is deprecated
+
+	Change-Id: If2167cb3914c3f5a8ee865bfbb241eed9e95bce4
+
+2018-05-05  David Tardon  <dtardon@redhat.com>  [0eb2512fd9b81bafcb8bcf23ef02a6818d0c4b81]
+
+	disable werror by default
+
+	Change-Id: Ib4cf1b4bc9b266d6662e5c78112a7f42a8a9d60c
+
+2018-02-02  David Tardon  <dtardon@redhat.com>  [e76aa017b09ac7ddc870df9a53e542a751c22e83]
+
+	iwyu: reduce includes
+
+	Change-Id: Icb9643c23f2c628a81d6570ca304473cd04137f7
+
+2018-01-22  David Tardon  <dtardon@redhat.com>  [9deed7ef402d924a24eb7e2442cc23cb3301eb0a]
+
+	ofz#4681 propagate read error up
+
+	Change-Id: I8e271410d717bc1d53323d624a3a46cf3812fca9
+
+2018-01-18  David Tardon  <dtardon@redhat.com>  [30a0e048c4bc7cb81b308e00f823ad5513adb3a9]
+
+	move dict from oss-fuzz
+
+	Change-Id: I95ad30e3b82d4ea4dbce5632e20b5b85bac7630d
+
+2018-01-04  Miklos Vajna  <vmiklos@collabora.co.uk>  [efb38995c8467214f6ee6424aab182bc8c4f15ed]
+
+	m4: MSVC defines __cplusplus as 199711L still
+
+	See e.g.
+	<https://stackoverflow.com/questions/37503029/cplusplus-is-equal-to-199711-in-msvc-does-it-support-c11>,
+	on MSVC we can't depend on the value of __cplusplus, since that one is a
+	too low value, even if everything else works fine.
+
+2017-12-31  David Tardon  <dtardon@redhat.com>  [5f5376e84c1b714542dd97aaa120334b977dcf82]
+
+	bump version
+
+	Change-Id: If2763f473abb3662500c56645bfe82165b2817d1
+
 2017-12-31  David Tardon  <dtardon@redhat.com>  [de7974e8a50fc840106dc8ebc38f915e95e88f36]
 
 	add another fixed bug to release notes
