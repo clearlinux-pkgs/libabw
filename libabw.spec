@@ -4,7 +4,7 @@
 #
 Name     : libabw
 Version  : 0.1.3
-Release  : 5
+Release  : 6
 URL      : https://dev-www.libreoffice.org/src/libabw-0.1.3.tar.xz
 Source0  : https://dev-www.libreoffice.org/src/libabw-0.1.3.tar.xz
 Summary  : A library for reading and writing AbiWord(tm) documents
