@@ -4,7 +4,7 @@
 #
 Name     : libabw
 Version  : 0.1.3
-Release  : 6
+Release  : 7
 URL      : https://dev-www.libreoffice.org/src/libabw-0.1.3.tar.xz
 Source0  : https://dev-www.libreoffice.org/src/libabw-0.1.3.tar.xz
 Summary  : A library for reading and writing AbiWord(tm) documents
@@ -83,14 +83,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1580324061
+export SOURCE_DATE_EPOCH=1592622976
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -103,7 +103,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1580324061
+export SOURCE_DATE_EPOCH=1592622976
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libabw
 cp %{_builddir}/libabw-0.1.3/COPYING.MPL %{buildroot}/usr/share/package-licenses/libabw/9744cedce099f727b327cd9913a1fdc58a7f5599
